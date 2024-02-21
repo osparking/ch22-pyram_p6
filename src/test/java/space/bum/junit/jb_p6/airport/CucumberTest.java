@@ -2,8 +2,8 @@ package space.bum.junit.jb_p6.airport;
 
 import org.junit.runner.RunWith;
 
-import cucumber.api.CucumberOptions;
-import cucumber.api.junit.Cucumber;
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
 
 /**
  * JUnit 으로 오이 시험을 실행할 때 진입점.
