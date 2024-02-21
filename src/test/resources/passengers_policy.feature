@@ -22,8 +22,7 @@ Feature: 항공편에서 승객 제거/이동 정책
 
   @byLevel
   Scenario Outline: 일반 승객용 항공편 승객 이동 정책
-    Given 한 항공편의 번호는 "<flightNumber>"이고 여기에는 <seats> 개의 좌석이 있으며 
-          승객 정보는 "<file>"에 들어있다
+    Given 한 항공편 - 번호는 "<flightNumber>" 좌석은 <seats>개, "<file>"에 승객 정보가 있다
     When 일반 승객이 여러 명 있다
     Then 우리는 일반 승객들을 항공편에서 제거할 수 있다
     And 일반 승객들을 다른 항공편에 넣을 수 있다
@@ -36,8 +35,7 @@ Feature: 항공편에서 승객 제거/이동 정책
 
   @byLevel
   Scenario Outline: VIP 승객의 항공편 변경 정책
-    Given 한 항공편의 번호는 "<flightNumber>"이고 여기에는 <seats> 개의 좌석이 있으며 
-          승객 정보는 "<file>"에 들어있다
+    Given 한 항공편 - 번호는 "<flightNumber>" 좌석은 <seats>개, "<file>"에 승객 정보가 있다
     When VIP 승객이 여러 명 있다
     Then 우리는 VIP 승객들을 항공편에서 제거할 수 없다
 
