@@ -38,4 +38,15 @@ public class PassengersPolicy {
   public void 일반_승객들을_다른_항공편에_넣을_수_있다() throws Throwable {
     regularPassengers.forEach(p -> assertTrue(anotherFlight.addPassenger(p)));
   }
+
+  @When("^VIP 승객이 여러 명 있다$")
+  public void vip_승객이_여러_명_있다() throws Throwable {
+    flight.getPassengers().stream().filter(p -> p.isVip())
+        .forEach(p -> vipPassengers.add(p));
+  }
+
+  @Then("^우리는 VIP 승객들을 항공편에서 제거할 수 없다$")
+  public void 우리는_VIP_승객들을_항공편에서_제거할_수_없다() throws Throwable {
+    vipPassengers.forEach(p -> assertFalse(flight.removePassenger(p)));
+  }
 }
