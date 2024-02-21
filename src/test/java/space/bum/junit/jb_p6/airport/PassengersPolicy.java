@@ -23,4 +23,19 @@ public class PassengersPolicy {
         "src/test/resources/" + filename);
   }
 
+  @When("^일반 승객이 여러 명 있다$")
+  public void 일반_승객이_여러_명_있다() throws Throwable {
+    flight.getPassengers().stream().filter(p -> !p.isVip())
+        .forEach(p -> regularPassengers.add(p));
+  }
+
+  @Then("^우리는 일반 승객들을 항공편에서 제거할 수 있다$")
+  public void 우리는_일반_승객들을_항공편에서_제거할_수_있다() throws Throwable {
+    regularPassengers.forEach(p -> assertTrue(flight.removePassenger(p)));
+  }
+
+  @Then("^일반 승객들을 다른 항공편에 넣을 수 있다$")
+  public void 일반_승객들을_다른_항공편에_넣을_수_있다() throws Throwable {
+    regularPassengers.forEach(p -> assertTrue(anotherFlight.addPassenger(p)));
+  }
 }
