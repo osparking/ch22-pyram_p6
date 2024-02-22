@@ -77,7 +77,11 @@ public class Flight {
   }
 
   public boolean removePassenger(Passenger passenger) {
-    return passengers.remove(passenger);
+    if (passenger.isVip()) {
+      return false;
+    } else {
+      return passengers.remove(passenger);
+    }
   }
 
   public int getPassengersNumber() {
