@@ -22,11 +22,6 @@ public class FlightBuilderUtil {
         String[] passengerStr = line.toString().split(";");
         Passenger p = new Passenger(passengerStr[0].trim(),
             passengerStr[1].trim(), passengerStr[2].trim());
-        if (passengerStr.length == 4) {
-          if ("Y".equals(passengerStr[3].trim())) {
-            p.setVip(true);
-          }
-        }
         flight.addPassenger(p);
       }
     }
